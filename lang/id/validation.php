@@ -100,7 +100,7 @@ return [
         'array' => 'The :attribute must have at least :min items.',
         'file' => 'The :attribute must be at least :min kilobytes.',
         'numeric' => 'The :attribute must be at least :min.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => 'The :attribute minimal harus :min karakter.',
     ],
     'min_digits' => 'The :attribute must have at least :min digits.',
     'missing' => 'The :attribute field must be missing.',
@@ -169,7 +169,7 @@ return [
         // jika ada nanti ada data attribute dengan key:username dan rules key:email..
         // maka pesan error ini yang akan di tampilkan
         'username' => [
-            'email' => "We only accept email address for username"
+            'email' => "Kami hanya menerima email sebagai user id",
         ]
     ],
 
