@@ -17,8 +17,12 @@ all() mendapatkan semua pesan error return array[]
 cara kerja validation.. jika kita terkena validation setelah klik tombol submit maka kita akan di redirect ke halaman ini lagi dengan status_code: 302
 
 Selain menggunakan variable $errors, untuk mendapatkan error by key
-Kita bisa menggunakan directive @error("key") // key adalah attribute/field yang terkena validation rules/aturan
+Kita bisa menggunakan directive @_error("key") // key adalah attribute/field yang terkena validation rules/aturan
 $message variable global yang akan print pesan error validation dari object \Illuminate\Support\MessageBag (handle pesan error validation)
+
+Kita bisa menggunakan method old(key) // key adalah attribute/field yang terkena validation rules/aturan,
+di Request, atau global function old di Blade template untuk mendapatkan data lama yang di simpan sementara Session
+jadi saat terkena exception validation data pada form input tidak hilang
 -->
 @if($errors->any())
     <ul>
@@ -31,9 +35,9 @@ $message variable global yang akan print pesan error validation dari object \Ill
 <form action="/form" method="post">
     @csrf
     <label>Username: @error("username") {{ $message }} @enderror
-        <input type="text" name="username"></label><br>
+        <input type="text" name="username" value="{{ old("username") }}"></label><br>
     <label>Password: @error("password") {{ $message }} @enderror
-        <input type="password" name="password"></label><br>
+        <input type="password" name="password" value="{{ old("password") }}"></label><br>
     <input type="submit" value="Login">
 </form>
 

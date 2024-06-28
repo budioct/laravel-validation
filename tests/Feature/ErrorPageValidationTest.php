@@ -30,6 +30,14 @@ class ErrorPageValidationTest extends TestCase
      * ● Selain menggunakan variable $errors, untuk mendapatkan error by key, kita pernah bahas di kelas
      *   Laravel Blade Template
      * ● Kita bisa menggunakan directive @error(key)
+     *
+     * Repopulating Forms
+     * ● Saat kita melakukan submit form, lalu terjadi error validasi, kadang kita tidak ingin menghapus data
+     *   sebelumnya yang sudah di input
+     * ● Untungnya, ketika terjadi ValidationException, Laravel menyimpan data yang dikirim ke Session
+     *   juga sementara
+     * ● Kita bisa menggunakan method old() di Request, atau global function old di Blade template untuk
+     *   mendapatkan data lama
      */
 
     public function testFormSuccessPage(): void
