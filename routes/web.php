@@ -23,3 +23,5 @@ Route::post("/form/login", [\App\Http\Controllers\FormController::class, "login"
 // Testing Error Page Validation
 Route::get("/form", [\App\Http\Controllers\FormController::class, "form"]);
 Route::post("/form", [\App\Http\Controllers\FormController::class, "submitForm"]);
+Route::get("/form/request", [\App\Http\Controllers\FormController::class, "formWithFormRequest"]);
+Route::post("/form/request", [\App\Http\Controllers\FormController::class, "submitFormWithFormRequest"]);
