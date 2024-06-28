@@ -15,6 +15,10 @@ any() method return boolean
 all() mendapatkan semua pesan error return array[]
 
 cara kerja validation.. jika kita terkena validation setelah klik tombol submit maka kita akan di redirect ke halaman ini lagi dengan status_code: 302
+
+Selain menggunakan variable $errors, untuk mendapatkan error by key
+Kita bisa menggunakan directive @error("key") // key adalah attribute/field yang terkena validation rules/aturan
+$message variable global yang akan print pesan error validation dari object \Illuminate\Support\MessageBag (handle pesan error validation)
 -->
 @if($errors->any())
     <ul>
@@ -26,8 +30,10 @@ cara kerja validation.. jika kita terkena validation setelah klik tombol submit 
 
 <form action="/form" method="post">
     @csrf
-    <label>Username: <input type="text" name="username"></label><br>
-    <label>Password: <input type="password" name="password"></label><br>
+    <label>Username: @error("username") {{ $message }} @enderror
+        <input type="text" name="username"></label><br>
+    <label>Password: @error("password") {{ $message }} @enderror
+        <input type="password" name="password"></label><br>
     <input type="submit" value="Login">
 </form>
 

@@ -25,6 +25,11 @@ class ErrorPageValidationTest extends TestCase
      *   sementara object error tersebut ke Session
      * ● Middleware ShareErrorsFromSession akan mendeteksi errors tersebut dan melakukan sharing
      *   informasi ke View sehingga kita bisa dengan mudah menggunakan variable $errors di Blade Temp
+     *
+     * Error Directive
+     * ● Selain menggunakan variable $errors, untuk mendapatkan error by key, kita pernah bahas di kelas
+     *   Laravel Blade Template
+     * ● Kita bisa menggunakan directive @error(key)
      */
 
     public function testFormSuccessPage(): void
