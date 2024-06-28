@@ -17,4 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Testing Error Validation Request web http dan api http
 Route::post("/form/login", [\App\Http\Controllers\FormController::class, "login"]);
+
+// Testing Error Page Validation
+Route::get("/form", [\App\Http\Controllers\FormController::class, "form"]);
+Route::post("/form", [\App\Http\Controllers\FormController::class, "submitForm"]);
